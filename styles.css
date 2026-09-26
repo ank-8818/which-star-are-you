@@ -1,0 +1,397 @@
+/*Root variables for color variables*/
+:root {
+    --bg-dark: #0B1026;
+    --bg-panel: #1B2347;
+    --bg-panel-alt: #141B3A;
+    --border: #3A4680;
+    --text-heading: #FFF6E0;
+    --text-body: #C9D1F0;
+    --text-muted: #7C86B8;
+    --accent-gold: #F2C879;
+    --accent-gold-light: #E8B65E;
+}
+
+
+/*Body and card colors*/
+body {
+    background: radial-gradient(
+    circle at 50% 0%,
+    #182044 0%,
+    #0F1633 40%,
+    var(--bg-dark) 78%);
+    font-size: 16px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    min-height: 100dvh;
+    padding: 3rem 1rem;
+    box-sizing: border-box;
+}
+
+.dark-card {
+    background: var(--bg-panel);
+    padding: 2rem 3rem;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    margin: auto 2rem;
+    max-width: 700px;
+}
+
+#quiz {
+    margin: auto 5rem;
+    width: min(720px, 90%);
+}
+
+#question-box {
+    background-color: var(--bg-panel-alt);
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 45px;
+}
+
+#result {
+    background: var(--bg-panel);
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    margin: auto 2rem;
+    max-width: 720px;
+    text-align: center;
+}
+
+
+
+
+/*Cursor and Glow Properties*/
+#cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url('./images/cursor-star.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-16px, -16px);
+    filter:
+        brightness(0) saturate(100%) invert(1)   /* forces fill to white */
+        drop-shadow(0 0 1px rgba(11, 16, 38, 0.9))  /* thin dark outline */
+        drop-shadow(0 0 6px rgba(242, 200, 121, 0.5))  /* soft gold glow */
+        drop-shadow(0 0 14px rgba(242, 200, 121, 0.25));
+    transition: transform 0.12s ease, filter 0.2s ease;
+    will-change: transform;
+}
+
+
+#cursor-glow.hovering {
+    filter:
+        brightness(0) saturate(100%) invert(1)
+        drop-shadow(0 0 1px rgba(11, 16, 38, 0.9))
+        drop-shadow(0 0 10px rgba(180, 210, 255, 0.7))
+        drop-shadow(0 0 20px rgba(180, 210, 255, 0.35));
+    transform: translate(-16px, -16px) scale(1.3);
+}
+
+#cursor-glow.clicking {
+    transform: translate(-16px, -16px) scale(0.85);
+}
+
+
+/*Media query to deal with cursor on mobile and touch screen devices*/
+
+#cursor-glow {
+    display: none;
+}
+
+@media (pointer: fine) {
+
+    #cursor-glow {
+        display: block;
+    }
+
+    * {
+        cursor: none;
+    }
+}
+
+
+
+/*Headings and Text*/
+
+h1, h2 {
+    font-family: 'Fraunces', serif;
+    color: var(--text-heading);
+    margin: 0;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.body-text{
+    color: var(--text-body);
+    font-size: 1rem;
+}
+
+
+.quote-text {
+    font-size: 0.85rem;
+    margin: 5rem auto 3rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.light-text {
+    color: var(--accent-gold);
+}
+
+#question-number{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+
+/*Buttons*/
+
+#start-button {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: var(--bg-dark);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 45px;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 600;
+    text-align: left;
+}
+
+#start-button:hover {
+    background: linear-gradient(135deg, #FFE0A0, #F2C879);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(242, 200, 121, 0.18);
+}
+
+#next {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 45px;
+    padding: 0.7rem 1.4rem;
+    font-weight: 600;
+    display: block;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+#next:disabled {
+    background: var(--bg-panel);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    cursor: not-allowed;
+}
+
+#restart {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 45px;
+    padding: 0.7rem 1.4rem;
+    font-weight: 600;
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+
+}
+
+
+
+/*Progress bar*/
+
+#progress {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+#progress-fill {
+    width: 20%;     /*This is changed with JavaScript */
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #7FB2FF 0%, #9EA9E8 35%, #D1B8C8 68%, #F2C879 100%);
+    box-shadow: 0 0 10px rgba(242, 200, 121, 0.18);
+    transition: width 0.3s ease;
+}
+
+
+
+/*Quiz page styles*/
+#options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.option {
+    background-color: var(--bg-panel);
+    padding: 16px 32px;
+    text-align: left;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.option.selected.one {
+    background: #7FB2FF;
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.option.selected.two {
+    background: #ffd166;
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.option.selected.three {
+    background: #ff9a5c;
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.option.selected.four {
+    background: #FFA8B3;
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+
+
+
+/*Result Page styles*/
+#result-image{
+    height: 240px;
+    width:240px;
+    object-fit: cover;
+    border-radius: 28px;
+    margin: 1rem auto 1.2rem;
+    display: block;
+    box-shadow:
+        0 0 25px rgba(242, 200, 121, 0.12),
+        0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.core-ideal {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.4rem;
+}
+
+.result-text{
+    font-size: 0.9rem;
+    color: var(--text-body);
+    max-width: 720px;
+    margin: 1rem auto;
+    line-height: 1.6;
+}
+
+#scientific-toggle{   
+    background: transparent;
+    color: var(--text-body);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin: 2rem auto 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+}
+
+#scientific-toggle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.result-quote{
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+#scientific-fact {
+    color: var(--text-body);
+    font-size: 0.7rem;
+    line-height: 1.6;
+}
+
+/*Footer*/
+footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    pointer-events: none; /* so it never blocks clicks on content behind/near it */
+    margin-top: 2rem;
+    z-index: -1;
+}
+
+
+
+/*Media Query for responsiveness*/
+@media (max-width: 628px) {
+
+    body {
+        padding-bottom: 4rem; /* a bit more room on small screens where it was overlapping */
+    }
+
+    #options {
+        grid-template-columns: 1fr;  /* stack to 1 column on mobile */
+    }
+
+    #result {
+        padding: 1.5rem;
+        border-radius: 24px;
+    }
+
+    #result-image {
+        width: 190px;
+        height: 190px;
+    }
+
+    .result-text {
+        font-size: 0.95rem;
+    }
+}

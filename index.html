@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which star are you?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link href="./styles.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <!--CURSOR-->
+    <div id="cursor-glow"></div>
+    
+    <!--FRONT PAGE-->
+
+    <div id="front-page">
+        <div class="dark-card">
+            <h1>Which star are you?</h1>
+
+            <p class="body-text">Every star has its own story. Some guide, some endure, some blaze boldly, and some shine quietly for billions of years.</p>
+            <p class="body-text">Answer a few fun questions and discover the star that reflects your way of shining.</p>
+
+            <p class="quote-text">No star is better than another. <br/>
+            <strong class="light-text">There's more than one way to shine.</strong></p>
+
+            <button id="start-button">Discover your star</button>   
+
+        </div>
+        
+    </div>
+
+
+    <!--QUIZ PAGE-->
+
+    <div id="quiz" style="display: none;">
+        <div id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progress-fill"></div>
+        </div>
+
+
+        <div id="question-box" aria-live="polite">
+            <h2 id="question-number"></h2>
+            <h2 id="question"></h2>
+        </div>
+
+        
+        <div id="options" role="radiogroup">
+            <button class="option one" role="radio" aria-checked="false"></button>
+            <button class="option two" role="radio" aria-checked="false"></button>
+            <button class="option three" role="radio" aria-checked="false"></button>
+            <button class="option four" role="radio" aria-checked="false"></button>
+        </div>
+
+        <button id="next">Next</button>
+    </div>
+
+
+    <!--RESULTS PAGE-->
+
+    <div id="result" style="display: none;">
+        
+        <div id="result-content" aria-live="polite">
+
+            <img src="" alt="" id="result-image"/>
+            
+            <h2></h2>
+
+            <p class="core-ideal"></p>
+
+            <div class="result-text">
+                <p></p>
+                <strong class="result-quote"></strong>
+
+            </div>
+
+
+            <button id="scientific-toggle" aria-expanded="false" aria-controls="scientific-fact">Want to be scientific?</button>
+            <div id="scientific-fact" hidden></div>
+        </div>
+
+        <button id="restart">Start Again</button>
+
+    </div>
+
+
+    <footer style="display: none;">Made with curiosity & a little stardust ✦</footer>
+    <script src="index.js" rel="text/javascript"></script>
+
+</body>
+</html>
