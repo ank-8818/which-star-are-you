@@ -255,7 +255,7 @@ h2 {
     padding: 16px 32px;
     text-align: left;
     color: var(--text-body);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border: 1px solid var(--border);
     border-radius: 15px;
 }
@@ -371,14 +371,43 @@ footer {
 
 
 /*Media Query for responsiveness*/
-@media (max-width: 628px) {
+@media (max-width: 768px) {
 
     body {
         padding-bottom: 4rem; /* a bit more room on small screens where it was overlapping */
     }
 
+    h1{
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .body-text, .result-text p {
+        font-size: 0.8rem;
+    }
+
+    #start-button, #next, #restart {
+        font-size: 0.8rem;
+    }
+
+    .result-quote {
+        font-size: 0.9rem;
+    }
+
+    #restart {
+        margin-top: 1.2rem;
+    }
+
     #options {
         grid-template-columns: 1fr;  /* stack to 1 column on mobile */
+    }
+
+    #scientific-toggle {
+        margin-top: 1.25rem auto 0.8rem;
     }
 
     #result {
